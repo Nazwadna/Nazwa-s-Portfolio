@@ -177,14 +177,6 @@ const certifications = [
     featured: true,
     note: "National competency certification based on SKKNI standards. Passed all 8 units of competency, including implementing user interfaces, structured programming, data structures, using pre-existing libraries, writing code documentation, and debugging. Valid until July 2029.",
   },
-  {
-    title: "Sarjana Muda Scientific Paper (Grade A)",
-    issuer: "Faculty of Industrial Technology, Gunadarma University",
-    date: "Sep 2025",
-    file: "https://drive.google.com/file/d/1vYRKdoDruRTxknZLuU_M-fE3xGA8Y4D_/view?usp=sharing",
-    featured: true,
-    note: "Designed and built a web-based portfolio management information system for Academy Next Top Model using the Waterfall method, from requirements analysis to implementation. Completed the Sarjana Muda level in Informatics with an A grade.",
-  },
   { title: "Basic Web Application Development", issuer: "Gunadarma University", date: "May - Jun 2026", file: "/certificates/web-app-development.pdf" },
   { title: "Basic Web Application Design", issuer: "Gunadarma University", date: "Sep 2025", file: "/certificates/web-app-design.pdf" },
   { title: "Interface Design and Prototyping with Figma", issuer: "Gunadarma University", date: "Jan 2026", file: "/certificates/figma-workshop.pdf" },
@@ -723,6 +715,7 @@ export default function NazwaPortfolio() {
             <p className="mt-1 text-sm text-white/60">Aug 2022 - Aug 2026 · GPA 3.57/4.00</p>
             <ul className="mt-5 space-y-3 text-sm leading-6 text-white/75">
               <li className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-300" />Thesis: NLP-based chatbot for intent detection (Grade A)</li>
+              <li className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-300" /><span>Sarjana Muda scientific paper (Grade A, Sep 2025): a web-based portfolio management information system for Academy Next Top Model, built with the Waterfall method.{' '}<a href="https://drive.google.com/file/d/1vYRKdoDruRTxknZLuU_M-fE3xGA8Y4D_/view?usp=sharing" target="_blank" rel="noreferrer" className="whitespace-nowrap font-medium text-blue-300 underline-offset-4 hover:underline">View certificate ↗</a></span></li>
               <li className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-300" />Relevant courses: Web Programming, Human-Computer Interaction, Database Systems</li>
             </ul>
           </div>
