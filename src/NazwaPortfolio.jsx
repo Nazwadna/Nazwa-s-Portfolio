@@ -177,6 +177,7 @@ const certifications = [
     featured: true,
     note: "National competency certification based on SKKNI standards. Passed all 8 units of competency, including implementing user interfaces, structured programming, data structures, using pre-existing libraries, writing code documentation, and debugging. Valid until July 2029.",
   },
+  { title: "EF SET English Certificate: 87/100 (C2 Proficient)", issuer: "EF SET", date: "Jul 2026", file: "https://cert.efset.org/id/WDwj9u" },
   { title: "Basic Web Application Development", issuer: "Gunadarma University", date: "May - Jun 2026", file: "/certificates/web-app-development.pdf" },
   { title: "Basic Web Application Design", issuer: "Gunadarma University", date: "Sep 2025", file: "/certificates/web-app-design.pdf" },
   { title: "Interface Design and Prototyping with Figma", issuer: "Gunadarma University", date: "Jan 2026", file: "/certificates/figma-workshop.pdf" },
