@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import profilePhoto from './assets/hero/profile.jpg';
 import laWebsite from './assets/Projects/la.png';
 import academyNextTopModel from './assets/Projects/Academy Next Top Model.png';
@@ -200,12 +200,77 @@ const certifications = [
 const card = 'rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-[0_18px_40px_rgba(0,0,0,0.22)] backdrop-blur-xl md:p-8';
 const eyebrow = 'text-xs font-medium uppercase tracking-[0.24em] text-blue-200/80';
 
+const prefersReducedMotion = () =>
+  typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+
+function useInView(options = { threshold: 0.15 }) {
+  const ref = useRef(null);
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    if (!ref.current || inView) return;
+    if (prefersReducedMotion() || !('IntersectionObserver' in window)) {
+      setInView(true);
+      return;
+    }
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setInView(true);
+        obs.disconnect();
+      }
+    }, options);
+    obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, [inView]);
+  return [ref, inView];
+}
+
+function Reveal({ children, delay = 0, className = '' }) {
+  const [ref, inView] = useInView();
+  return (
+    <div
+      ref={ref}
+      style={{ transitionDelay: `${delay}ms` }}
+      className={`transition-all duration-700 ease-out ${inView ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'} ${className}`}
+    >
+      {children}
+    </div>
+  );
+}
+
+function CountUp({ value }) {
+  const match = /^([0-9]+(?:\.[0-9]+)?)(.*)$/.exec(value);
+  const [ref, inView] = useInView({ threshold: 0.6 });
+  const [display, setDisplay] = useState(match ? `0${match[2]}` : value);
+  useEffect(() => {
+    if (!match || !inView) return;
+    const target = parseFloat(match[1]);
+    const decimals = (match[1].split('.')[1] || '').length;
+    if (prefersReducedMotion()) {
+      setDisplay(value);
+      return;
+    }
+    let frame;
+    const start = performance.now();
+    const tick = (now) => {
+      const t = Math.min((now - start) / 1200, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      setDisplay(`${(target * eased).toFixed(decimals)}${match[2]}`);
+      if (t < 1) frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [inView]);
+  return <span ref={ref}>{display}</span>;
+}
+
+const techFilters = ['All', 'Laravel', 'React.js', 'PHP', 'MySQL', 'Tailwind CSS', 'Figma'];
+
 function SectionHeading({ label, title }) {
   return (
-    <div className="mb-8">
+    <Reveal className="mb-8">
       <p className={eyebrow}>{label}</p>
       <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">{title}</h2>
-    </div>
+    </Reveal>
   );
 }
 
@@ -227,10 +292,36 @@ export default function NazwaPortfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showTop, setShowTop] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const [progress, setProgress] = useState(0);
+  const [techFilter, setTechFilter] = useState('All');
+  const [showAllCerts, setShowAllCerts] = useState(false);
+  const [toast, setToast] = useState('');
+
+  const matchesFilter = (project) => techFilter === 'All' || project.tools.includes(techFilter);
+  const featuredProjects = projects.filter((p) => !p.compact && !p.design && matchesFilter(p));
+  const compactProjects = projects.filter((p) => p.compact && matchesFilter(p));
+  const designProjects = projects.filter((p) => p.design && matchesFilter(p));
+  const visibleCount = featuredProjects.length + compactProjects.length + designProjects.length;
+
+  const featuredCerts = certifications.filter((c) => c.featured);
+  const otherCerts = certifications.filter((c) => !c.featured);
+  const shownCerts = [...featuredCerts, ...(showAllCerts ? otherCerts : otherCerts.slice(0, 4))];
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setToast('Email copied to clipboard');
+    } catch {
+      setToast(EMAIL);
+    }
+    setTimeout(() => setToast(''), 2200);
+  };
 
   useEffect(() => {
     const onScroll = () => {
       setShowTop(window.scrollY > 600);
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(max > 0 ? (window.scrollY / max) * 100 : 0);
       let current = '';
       for (const item of navItems) {
         const el = document.getElementById(item.id);
@@ -249,10 +340,11 @@ export default function NazwaPortfolio() {
   };
 
   const renderFeatured = (project, index) => (
-            <article key={project.title} className={`${card} grid gap-8 md:grid-cols-2 md:items-center`}>
+            <Reveal key={project.title}>
+            <article className={`${card} grid gap-8 md:grid-cols-2 md:items-center`}>
               <div className={index % 2 === 1 ? 'md:order-2' : ''}>
-                <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#0f1118]">
-                  <img src={project.image} alt={`${project.title} preview`} loading="lazy" className="w-full object-cover" />
+                <div className="group overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#0f1118]">
+                  <img src={project.image} alt={`${project.title} preview`} loading="lazy" className="w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]" />
                 </div>
               </div>
 
@@ -269,7 +361,7 @@ export default function NazwaPortfolio() {
                   <dl className="mt-6 grid grid-cols-3 gap-4 border-y border-white/10 py-4">
                     {project.stats.map((s) => (
                       <div key={s.label}>
-                        <dd className="text-2xl font-semibold text-white">{s.value}</dd>
+                        <dd className="text-2xl font-semibold text-white"><CountUp value={s.value} /></dd>
                         <dt className="mt-1 text-xs leading-4 text-white/55">{s.label}</dt>
                       </div>
                     ))}
@@ -313,10 +405,19 @@ export default function NazwaPortfolio() {
                 </div>
               </div>
             </article>
+            </Reveal>
   );
 
   return (
-    <main className="relative min-h-screen overflow-x-hidden bg-[#0a0f1f] text-white">
+    <main className="relative min-h-screen overflow-x-clip bg-[#0a0f1f] text-white">
+      <div className="fixed left-0 top-0 z-50 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-400" style={{ width: `${progress}%` }} aria-hidden="true" />
+      <div
+        role="status"
+        aria-live="polite"
+        className={`fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-full border border-white/10 bg-[#111a33] px-5 py-3 text-sm text-white shadow-xl transition-all duration-300 ${toast ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-4 opacity-0'}`}
+      >
+        {toast}
+      </div>
       <div className="pointer-events-none absolute inset-0 -z-0 overflow-hidden">
         <div className="absolute left-[-8rem] top-[-5rem] h-[26rem] w-[26rem] rounded-full bg-blue-600/10 blur-3xl" />
         <div className="absolute right-[-6rem] top-[10rem] h-[24rem] w-[24rem] rounded-full bg-indigo-500/10 blur-3xl" />
@@ -437,7 +538,7 @@ export default function NazwaPortfolio() {
 
       {/* About */}
       <section id="about" className="relative mx-auto max-w-7xl scroll-mt-28 px-6 py-10 md:px-10">
-        <div className="grid gap-6 md:grid-cols-[1fr_1fr]">
+        <Reveal><div className="grid gap-6 md:grid-cols-[1fr_1fr]">
           <div className={card}>
             <p className={eyebrow}>About</p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight">From design to a working website.</h2>
@@ -461,13 +562,13 @@ export default function NazwaPortfolio() {
               ))}
             </dl>
           </div>
-        </div>
+        </div></Reveal>
       </section>
 
       {/* Experience */}
       <section id="experience" className="relative mx-auto max-w-7xl scroll-mt-28 px-6 py-10 md:px-10">
         <SectionHeading label="Experience" title="Where I've worked" />
-        <div className="grid gap-6 lg:grid-cols-[1.3fr_0.7fr]">
+        <Reveal><div className="grid gap-6 lg:grid-cols-[1.3fr_0.7fr]">
           <div className={card}>
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
@@ -500,20 +601,38 @@ export default function NazwaPortfolio() {
               ))}
             </ul>
           </div>
-        </div>
+        </div></Reveal>
       </section>
 
       {/* Projects */}
       <section id="projects" className="relative mx-auto max-w-7xl scroll-mt-28 px-6 py-16 md:px-10">
         <SectionHeading label="Selected Projects" title="Featured work" />
-        <div className="space-y-8">
-          {projects.filter((p) => !p.compact && !p.design).map((project, index) => renderFeatured(project, index))}
+        <div className="-mt-2 mb-8 flex flex-wrap items-center gap-2" role="group" aria-label="Filter projects by technology">
+          <span className="mr-1 text-xs uppercase tracking-[0.18em] text-white/55">Filter</span>
+          {techFilters.map((tech) => (
+            <button
+              key={tech}
+              onClick={() => setTechFilter(tech)}
+              aria-pressed={techFilter === tech}
+              className={`rounded-full border px-3.5 py-1.5 text-sm transition ${techFilter === tech ? 'border-blue-400/60 bg-blue-500/20 text-white' : 'border-white/10 bg-white/5 text-white/70 hover:border-white/25 hover:text-white'}`}
+            >
+              {tech}
+            </button>
+          ))}
+          <span className="ml-auto text-xs text-white/55">{visibleCount} project{visibleCount === 1 ? '' : 's'}</span>
         </div>
 
-        <h3 className="mb-5 mt-14 text-xl font-semibold">More projects</h3>
+        {featuredProjects.length > 0 && (
+          <div className="space-y-8">
+            {featuredProjects.map((project, index) => renderFeatured(project, index))}
+          </div>
+        )}
+
+        {compactProjects.length > 0 && <h3 className="mb-5 mt-14 text-xl font-semibold">More projects</h3>}
         <div className="grid gap-5 md:grid-cols-3">
-          {projects.filter((p) => p.compact).map((project) => (
-            <article key={project.title} className="flex flex-col rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6">
+          {compactProjects.map((project, i) => (
+            <Reveal key={project.title} delay={i * 100} className="flex">
+            <article className="flex w-full flex-col rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6 transition duration-300 hover:-translate-y-1 hover:border-blue-300/30 hover:bg-white/[0.06]">
               <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs">
                 <span className="rounded-full border border-blue-400/20 bg-blue-400/10 px-3 py-1 font-medium uppercase tracking-[0.12em] text-blue-200">{project.category}</span>
                 <span className="text-white/55">{project.period}</span>
@@ -525,7 +644,7 @@ export default function NazwaPortfolio() {
                 <dl className="mt-4 flex gap-6">
                   {project.stats.map((st) => (
                     <div key={st.label}>
-                      <dd className="text-xl font-semibold">{st.value}</dd>
+                      <dd className="text-xl font-semibold"><CountUp value={st.value} /></dd>
                       <dt className="text-xs text-white/55">{st.label}</dt>
                     </div>
                   ))}
@@ -545,29 +664,53 @@ export default function NazwaPortfolio() {
                 ))}
               </div>
             </article>
+            </Reveal>
           ))}
         </div>
 
-        <h3 className="mb-5 mt-14 text-xl font-semibold">UI/UX design</h3>
-        <div className="space-y-8">
-          {projects.filter((p) => p.design).map((project, index) => renderFeatured(project, index))}
-        </div>
+        {designProjects.length > 0 && (
+          <>
+            <h3 className="mb-5 mt-14 text-xl font-semibold">UI/UX design</h3>
+            <div className="space-y-8">
+              {designProjects.map((project, index) => renderFeatured(project, index))}
+            </div>
+          </>
+        )}
+
+        {visibleCount === 0 && (
+          <p className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-white/70">No projects use {techFilter} yet.</p>
+        )}
       </section>
 
       {/* Skills & Education */}
       <section id="skills" className="relative mx-auto max-w-7xl scroll-mt-28 px-6 py-10 md:px-10">
-        <div className="grid gap-6 md:grid-cols-[1.2fr_0.8fr]">
+        <Reveal><div className="grid gap-6 md:grid-cols-[1.2fr_0.8fr]">
           <div className={card}>
             <p className={eyebrow}>Skills</p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight">Tools and capabilities</h2>
+            <p className="mt-2 text-sm text-white/60">Tip: click a highlighted skill to see the projects that use it.</p>
             <div className="mt-6 space-y-5">
               {skillGroups.map((group) => (
                 <div key={group.title}>
                   <p className="text-xs uppercase tracking-[0.18em] text-white/55">{group.title}</p>
                   <div className="mt-3 flex flex-wrap gap-2">
-                    {group.items.map((skill) => (
-                      <span key={skill} className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-sm text-white/85">{skill}</span>
-                    ))}
+                    {group.items.map((skill) =>
+                      techFilters.includes(skill) ? (
+                        <button
+                          key={skill}
+                          onClick={() => {
+                            setTechFilter(skill);
+                            goTo('projects');
+                          }}
+                          title={`Show projects built with ${skill}`}
+                          className="rounded-full border border-blue-400/25 bg-blue-500/10 px-3.5 py-1.5 text-sm text-white/90 transition hover:border-blue-300/60 hover:bg-blue-500/20"
+                        >
+                          {skill}
+                        </button>
+                      ) : (
+                        <span key={skill} className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-sm text-white/85">{skill}</span>
+                      )
+                    )}
                   </div>
                 </div>
               ))}
@@ -583,14 +726,14 @@ export default function NazwaPortfolio() {
               <li className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-300" />Relevant courses: Web Programming, Human-Computer Interaction, Database Systems</li>
             </ul>
           </div>
-        </div>
+        </div></Reveal>
       </section>
 
       {/* Certifications */}
       <section id="certifications" className="relative mx-auto max-w-7xl scroll-mt-28 px-6 py-16 md:px-10">
         <SectionHeading label="Certifications" title="Training and certificates" />
         <div className="grid gap-4 md:grid-cols-2">
-          {certifications.map((cert) => {
+          {shownCerts.map((cert) => {
             const inner = (
               <>
                 <div className="flex items-start justify-between gap-4">
@@ -613,11 +756,22 @@ export default function NazwaPortfolio() {
             );
           })}
         </div>
+        {otherCerts.length > 4 && (
+          <div className="mt-6 text-center">
+            <button
+              onClick={() => setShowAllCerts((v) => !v)}
+              aria-expanded={showAllCerts}
+              className="rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-medium text-white/90 transition hover:bg-white/10"
+            >
+              {showAllCerts ? 'Show fewer' : `Show all ${certifications.length} certificates`}
+            </button>
+          </div>
+        )}
       </section>
 
       {/* Contact */}
       <section id="contact" className="relative mx-auto max-w-7xl scroll-mt-28 px-6 pb-16 md:px-10">
-        <div className="overflow-hidden rounded-[2.4rem] border border-blue-400/15 bg-[linear-gradient(135deg,#0d1730_0%,#0d1b2a_55%,#111a3a_100%)] px-6 py-10 md:px-12 md:py-14">
+        <Reveal><div className="overflow-hidden rounded-[2.4rem] border border-blue-400/15 bg-[linear-gradient(135deg,#0d1730_0%,#0d1b2a_55%,#111a3a_100%)] px-6 py-10 md:px-12 md:py-14">
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div className="min-w-0">
               <p className={eyebrow}>Contact</p>
@@ -629,7 +783,10 @@ export default function NazwaPortfolio() {
                 <a href={`mailto:${EMAIL}`} className="rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 text-sm font-medium text-white transition hover:from-blue-500 hover:to-indigo-500">
                   Send an email
                 </a>
-                <a href={CV_LINK} target="_blank" rel="noopener noreferrer" className="rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10">
+                <button onClick={copyEmail} className="rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10">
+                  Copy email
+                </button>
+                <a href={CV_LINK} target="_blank" rel="noopener noreferrer" className="rounded-full px-4 py-3 text-sm font-medium text-white/75 transition hover:text-white">
                   Download CV
                 </a>
               </div>
@@ -666,7 +823,7 @@ export default function NazwaPortfolio() {
               })}
             </ul>
           </div>
-        </div>
+        </div></Reveal>
       </section>
 
       <footer className="relative mx-auto max-w-7xl border-t border-white/10 px-6 py-8 text-sm text-white/55 md:px-10">
