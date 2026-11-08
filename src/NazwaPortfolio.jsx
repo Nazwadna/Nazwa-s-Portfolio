@@ -72,9 +72,9 @@ export default function NazwaPortfolio() {
     {
       title: "Public Service and Complaint Website",
       subtitle: "Lenteng Agung Urban Village Office",
-      period: "2025 — 2026",
+      period: "Oct 2025 - Jan 2026",
       category: "Community Service Project",
-      tools: ["Figma", "React.js", "Vite", "PHP", "MySQL"],
+      tools: ["Figma", "React.js", "Vite", "Tailwind CSS", "Supabase"],
       image: laWebsite,
       figmaLink: "https://www.figma.com/design/ikdzIxZeY8x5oIdPl0pZzZ/Kelurahan-Lenteng-Agung-Design?node-id=0-1&t=FQIoAoxjCZXxXPwP-1",
       githubLink: "https://github.com/Nazwadna/kelurahan-la-main.git",
@@ -87,21 +87,22 @@ export default function NazwaPortfolio() {
         "Designed an AI chatbot-assisted service flow for residents.",
         "Restructured navigation and page hierarchy for better usability.",
         "Implemented AI chatbot feature to provide instant assistance and automated responses to resident inquiries.",
+        "Built a separate admin dashboard for village staff to manage complaints and website content.",
       ],
     },
     {
       title: "Academy Next Top Model Website",
       subtitle: "Modeling Academy Platform",
-      period: "2025",
-      category: "Academic Project",
-      tools: ["Figma", "HTML", "CSS", "JavaScript", "Laravel"],
+      period: "2025 - 2026",
+      category: "Academic Project & Thesis",
+      tools: ["Figma", "HTML", "CSS", "JavaScript", "Laravel", "MySQL", "Python (Flask)"],
       image: academyNextTopModel,
       figmaLink: "https://www.figma.com/design/nnAZEMHkD7r4pRfjgxjjHk/Website-Academy-Next-Top-Model?node-id=0-1&t=10zxFPACS7MvkWoH-1",
-      githubLink: "https://github.com/Nazwadna/academyntm2-finale.git",
+      githubLink: "https://github.com/Nazwadna/academynexttopmodel",
       livePreviewLink: "https://www.figma.com/proto/nnAZEMHkD7r4pRfjgxjjHk/Website-Academy-Next-Top-Model?node-id=0-1&t=10zxFPACS7MvkWoH-1",
       description:
-        "A responsive website concept for a modeling academy with a modern fashion-forward feel, focused on clear navigation, strong visual hierarchy, and an intuitive registration journey. Currently developing this project for my thesis with additional AI chatbot features.",
-      results: ["10+ UI screens", "Responsive design implementation"],
+        "A responsive website concept for a modeling academy with a modern fashion-forward feel, focused on clear navigation, strong visual hierarchy, and an intuitive registration journey. Extended for my thesis (Grade A) with an NLP chatbot and an admin dashboard to manage chatbot data.",
+      results: ["10+ UI screens", "88.89% chatbot intent accuracy", "92% user acceptance (UAT)"],
       highlights: [
         "Created homepage, gallery, program pages, and registration flow.",
         "Mapped user flow for exploring programs and applying online.",
@@ -198,6 +199,10 @@ export default function NazwaPortfolio() {
     "CSS",
     "JavaScript",
     "React.js",
+    "Laravel",
+    "Tailwind CSS",
+    "Bootstrap",
+    "Supabase",
     "PHP",
     "MySQL",
     "GitHub",
@@ -215,11 +220,12 @@ export default function NazwaPortfolio() {
   ];
 
   const experience = [
-    "Choreographer — Wondrous by Benita Octaviana",
-    "Design Crew Member — Indonesia Fashion Week 2025",
-    "Event Organizer — Fashion Trunk Show",
-    "Model — Modest Fashion Week 2024",
-    "Model — Gebyar UMKM Event",
+    "Cloud Team Intern - Telkomsel (Jul 2026 - Present)",
+    "Choreographer - Wondrous by Benita Octaviana",
+    "Design Crew Member - Indonesia Fashion Week 2025",
+    "Event Organizer - Fashion Trunk Show",
+    "Model - Modest Fashion Week 2024",
+    "Model - Gebyar UMKM Event",
   ];
 
   return (
@@ -272,19 +278,19 @@ export default function NazwaPortfolio() {
         <div className="grid items-center gap-10 md:grid-cols-[1.1fr_0.9fr]">
           <div>
             <p className="mb-4 inline-flex rounded-full border border-blue-400/20 bg-blue-500/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-blue-200">
-              Creative Portfolio
+              Web Developer Portfolio
             </p>
             <h1 className="max-w-3xl text-6xl font-semibold leading-[1.02] tracking-tight md:text-8xl">
               Nazwa's Portfolio
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/65 md:text-lg">
-              Informatics Engineering student with hands-on experience in UI/UX design, prototyping, and digital product development. I create interfaces that feel modern, structured, and visually memorable while staying intuitive for users.
+              Informatics Engineering graduate and BNSP-certified Junior Web Programmer. I build websites and admin dashboards with React.js, Laravel, and Tailwind CSS, from Figma design to a working application.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3 text-sm text-white/70">
               <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2">Jakarta, Indonesia</span>
-              <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2">Figma • Web Design • Prototyping</span>
-              <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2">Informatics Engineering Student</span>
+              <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2">React.js • Laravel • Figma</span>
+              <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2">Web Developer</span>
             </div>
 
             <div className="mt-10 flex flex-wrap gap-4">
@@ -489,9 +495,9 @@ export default function NazwaPortfolio() {
             <div className="mt-5 rounded-[1.5rem] border border-white/8 bg-[#11141d] p-5">
               <p className="text-lg font-medium text-white">Gunadarma University</p>
               <p className="mt-2 text-sm text-white/60">Bachelor's Degree in Informatics Engineering</p>
-              <p className="mt-1 text-sm text-white/60">Aug 2022 — Present</p>
+              <p className="mt-1 text-sm text-white/60">Aug 2022 - Aug 2026 | GPA 3.57/4.00</p>
               <p className="mt-4 text-sm leading-7 text-white/65">
-                Relevant coursework includes Human–Computer Interaction, Interface Design and Prototyping, Database Management Systems, Artificial Intelligence, and Web Programming.
+                Relevant coursework includes Human-Computer Interaction, Interface Design and Prototyping, Database Management Systems, Artificial Intelligence, and Web Programming.
               </p>
             </div>
           </div>
@@ -528,7 +534,7 @@ export default function NazwaPortfolio() {
           </div>
 
           <div className="rounded-[2rem] border border-white/10 bg-white/5 p-7 shadow-[0_18px_40px rgba(0,0,0,0.2)] backdrop-blur-xl">
-            <p className="text-sm uppercase tracking-[0.22em] text-indigo-200/75">Creative Experience</p>
+            <p className="text-sm uppercase tracking-[0.22em] text-indigo-200/75">Experience</p>
             <div className="mt-5 space-y-3">
               {experience.map((item) => (
                 <div key={item} className="rounded-[1.25rem] border border-white/8 bg-[#11141d] px-4 py-4 text-sm leading-7 text-white/70">

@@ -1,68 +1,29 @@
-# Nazwa Portfolio Website
+# Nazwa's Portfolio
 
-A modern, dark-themed portfolio website built with React, Vite, and Tailwind CSS.
+Personal portfolio website of **Nazwa Audina**, Web Developer and Informatics Engineering graduate from Gunadarma University.
 
-## Adding Your Photos
+Live site: https://nazwadnaportfolio.vercel.app/
 
-### Hero Image
-To add your photo to the hero section:
+## Projects Featured
 
-1. **Save your photo** as `hero-image.jpg` in the `src/assets/` folder
-2. **Uncomment the import line** at the top of `src/NazwaPortfolio.jsx`:
-   ```javascript
-   // Change this:
-   // import heroImage from './assets/hero-image.jpg';
-   
-   // To this:
-   import heroImage from './assets/hero-image.jpg';
-   ```
+- **Lenteng Agung Urban Village Public Service Website**: React.js, Tailwind CSS, Supabase
+- **Academy Next Top Model Website & Chatbot**: Laravel, MySQL, Python (Flask)
+- **Perpus GAS**: library management system with React.js and PHP
+- **Jewepe Wedding**, **Preloved**, and **Leviora** (Figma prototype)
 
-3. **Replace the placeholder** with the actual image:
-   ```javascript
-   // Replace the placeholder div with:
-   <img 
+## Tech Stack
 
-### Project Website Image
-To add the website screenshot for the Lenteng Agung project:
+React 18, Vite, Tailwind CSS
 
-1. **Save your screenshot** as `lenteng-agung-website.png` in the `src/assets/` folder
-2. **Uncomment the import line** at the top of `src/NazwaPortfolio.jsx`:
-   ```javascript
-   // Change this:
-   // import lentengAgungWebsite from './assets/lenteng-agung-website.png';
-   
-   // To this:
-   import lentengAgungWebsite from './assets/lenteng-agung-website.png';
-   ```
-
-3. **Replace the placeholder** with the actual image:
-   ```javascript
-   // Replace the placeholder div with:
-   <img 
-     src={lentengAgungWebsite} 
-     alt="Kelurahan Lenteng Agung Website - Public Service Platform with AI Chatbot" 
-     className="h-full w-full object-cover rounded-[1.4rem]"
-   />
-   ```
-
-## Development
+## Run Locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Build
+Build for production:
 
 ```bash
 npm run build
 ```
-
-## Features
-
-- ✅ Fully responsive design
-- ✅ Dark theme with gradient effects
-- ✅ Functional navigation buttons
-- ✅ LinkedIn and GitHub integration
-- ✅ Smooth scrolling
-- ✅ Contact section with email/phone links
