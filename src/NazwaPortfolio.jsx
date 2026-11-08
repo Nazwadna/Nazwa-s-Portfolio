@@ -3,9 +3,6 @@ import profilePhoto from './assets/hero/profile.jpg';
 import laWebsite from './assets/Projects/la.png';
 import academyNextTopModel from './assets/Projects/Academy Next Top Model.png';
 import levioraFashion from './assets/Projects/Leviora.png';
-import jewepeWedding from './assets/Projects/jewepe weeding.png';
-import perpusGas from './assets/Projects/Perpus Gas.png';
-import preloved from './assets/Projects/preloved.png';
 
 const EMAIL = 'nazwaaudina.work@gmail.com';
 const CV_LINK = '/cv/CV_Nazwa_Audina_Web_Developer.pdf';
@@ -78,7 +75,7 @@ const projects = [
     period: 'Dec 2024 - Jan 2025',
     category: 'Academic Project',
     role: 'Web Developer',
-    image: perpusGas,
+    compact: true,
     description:
       'A web-based library system with a React front end and a PHP API, built for the Web Programming Practicum.',
     stats: [
@@ -99,7 +96,7 @@ const projects = [
     period: '2024',
     category: 'Web Development Project',
     role: 'Web Developer',
-    image: jewepeWedding,
+    compact: true,
     description:
       'A web application where customers browse wedding packages and place orders, while the admin manages the catalog and incoming orders.',
     stats: [],
@@ -120,7 +117,7 @@ const projects = [
     period: '2024',
     category: 'Desktop Application Project',
     role: 'Developer',
-    image: preloved,
+    compact: true,
     description:
       'A desktop point of sale application to manage sales and inventory for a second-hand fashion store.',
     stats: [],
@@ -138,6 +135,7 @@ const projects = [
     period: '2024',
     category: 'Human-Computer Interaction Project',
     role: 'UI/UX Designer',
+    design: true,
     image: levioraFashion,
     description:
       'A fashion e-commerce prototype focused on product discovery and a smooth shopping flow.',
@@ -249,6 +247,73 @@ export default function NazwaPortfolio() {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     setIsMenuOpen(false);
   };
+
+  const renderFeatured = (project, index) => (
+            <article key={project.title} className={`${card} grid gap-8 md:grid-cols-2 md:items-center`}>
+              <div className={index % 2 === 1 ? 'md:order-2' : ''}>
+                <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#0f1118]">
+                  <img src={project.image} alt={`${project.title} preview`} loading="lazy" className="w-full object-cover" />
+                </div>
+              </div>
+
+              <div className={index % 2 === 1 ? 'md:order-1' : ''}>
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs">
+                  <span className="rounded-full border border-blue-400/20 bg-blue-400/10 px-3 py-1 font-medium uppercase tracking-[0.14em] text-blue-200">{project.category}</span>
+                  <span className="text-white/55">{project.period}</span>
+                </div>
+                <h3 className="mt-4 text-2xl font-semibold leading-tight md:text-3xl">{project.title}</h3>
+                <p className="mt-1 text-sm text-white/60">Role: {project.role}</p>
+                <p className="mt-4 text-base leading-7 text-white/75">{project.description}</p>
+
+                {project.stats.length > 0 && (
+                  <dl className="mt-6 grid grid-cols-3 gap-4 border-y border-white/10 py-4">
+                    {project.stats.map((s) => (
+                      <div key={s.label}>
+                        <dd className="text-2xl font-semibold text-white">{s.value}</dd>
+                        <dt className="mt-1 text-xs leading-4 text-white/55">{s.label}</dt>
+                      </div>
+                    ))}
+                  </dl>
+                )}
+
+                <ul className="mt-5 space-y-2 text-sm leading-7 text-white/75">
+                  {project.highlights.map((item) => (
+                    <li key={item} className="flex gap-3">
+                      <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-300" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {project.tools.map((tool) => (
+                    <span key={tool} className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/75">{tool}</span>
+                  ))}
+                </div>
+
+                <div className="mt-6 flex flex-wrap gap-3">
+                  {project.links.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium transition ${
+                        link.primary
+                          ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-500 hover:to-indigo-500'
+                          : link.award
+                            ? 'border border-amber-300/30 bg-amber-400/10 text-amber-100 hover:bg-amber-400/20'
+                            : 'border border-white/15 bg-white/5 text-white/85 hover:bg-white/10'
+                      }`}
+                    >
+                      {link.label}
+                      <ArrowIcon direction="external" className="h-3.5 w-3.5" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </article>
+  );
 
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-[#0a0f1f] text-white">
@@ -442,72 +507,50 @@ export default function NazwaPortfolio() {
       <section id="projects" className="relative mx-auto max-w-7xl scroll-mt-28 px-6 py-16 md:px-10">
         <SectionHeading label="Selected Projects" title="Featured work" />
         <div className="space-y-8">
-          {projects.map((project, index) => (
-            <article key={project.title} className={`${card} grid gap-8 md:grid-cols-2 md:items-center`}>
-              <div className={index % 2 === 1 ? 'md:order-2' : ''}>
-                <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#0f1118]">
-                  <img src={project.image} alt={`${project.title} preview`} loading="lazy" className="w-full object-cover" />
-                </div>
+          {projects.filter((p) => !p.compact && !p.design).map((project, index) => renderFeatured(project, index))}
+        </div>
+
+        <h3 className="mb-5 mt-14 text-xl font-semibold">More projects</h3>
+        <div className="grid gap-5 md:grid-cols-3">
+          {projects.filter((p) => p.compact).map((project) => (
+            <article key={project.title} className="flex flex-col rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs">
+                <span className="rounded-full border border-blue-400/20 bg-blue-400/10 px-3 py-1 font-medium uppercase tracking-[0.12em] text-blue-200">{project.category}</span>
+                <span className="text-white/55">{project.period}</span>
               </div>
-
-              <div className={index % 2 === 1 ? 'md:order-1' : ''}>
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs">
-                  <span className="rounded-full border border-blue-400/20 bg-blue-400/10 px-3 py-1 font-medium uppercase tracking-[0.14em] text-blue-200">{project.category}</span>
-                  <span className="text-white/55">{project.period}</span>
-                </div>
-                <h3 className="mt-4 text-2xl font-semibold leading-tight md:text-3xl">{project.title}</h3>
-                <p className="mt-1 text-sm text-white/60">Role: {project.role}</p>
-                <p className="mt-4 text-base leading-7 text-white/75">{project.description}</p>
-
-                {project.stats.length > 0 && (
-                  <dl className="mt-6 grid grid-cols-3 gap-4 border-y border-white/10 py-4">
-                    {project.stats.map((s) => (
-                      <div key={s.label}>
-                        <dd className="text-2xl font-semibold text-white">{s.value}</dd>
-                        <dt className="mt-1 text-xs leading-4 text-white/55">{s.label}</dt>
-                      </div>
-                    ))}
-                  </dl>
-                )}
-
-                <ul className="mt-5 space-y-2 text-sm leading-7 text-white/75">
-                  {project.highlights.map((item) => (
-                    <li key={item} className="flex gap-3">
-                      <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-300" />
-                      <span>{item}</span>
-                    </li>
+              <h4 className="mt-4 text-xl font-semibold">{project.title}</h4>
+              <p className="mt-1 text-sm text-white/60">{project.subtitle}</p>
+              <p className="mt-4 text-sm leading-7 text-white/75">{project.description}</p>
+              {project.stats.length > 0 && (
+                <dl className="mt-4 flex gap-6">
+                  {project.stats.map((st) => (
+                    <div key={st.label}>
+                      <dd className="text-xl font-semibold">{st.value}</dd>
+                      <dt className="text-xs text-white/55">{st.label}</dt>
+                    </div>
                   ))}
-                </ul>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {project.tools.map((tool) => (
-                    <span key={tool} className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/75">{tool}</span>
-                  ))}
-                </div>
-
-                <div className="mt-6 flex flex-wrap gap-3">
-                  {project.links.map((link) => (
-                    <a
-                      key={link.label}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium transition ${
-                        link.primary
-                          ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-500 hover:to-indigo-500'
-                          : link.award
-                            ? 'border border-amber-300/30 bg-amber-400/10 text-amber-100 hover:bg-amber-400/20'
-                            : 'border border-white/15 bg-white/5 text-white/85 hover:bg-white/10'
-                      }`}
-                    >
-                      {link.label}
-                      <ArrowIcon direction="external" className="h-3.5 w-3.5" />
-                    </a>
-                  ))}
-                </div>
+                </dl>
+              )}
+              <div className="mt-5 flex flex-wrap gap-2">
+                {project.tools.map((tool) => (
+                  <span key={tool} className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/75">{tool}</span>
+                ))}
+              </div>
+              <div className="mt-auto flex flex-wrap gap-3 pt-6">
+                {project.links.map((link) => (
+                  <a key={link.label} href={link.url} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium transition ${link.primary ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-500 hover:to-indigo-500' : 'border border-white/15 bg-white/5 text-white/85 hover:bg-white/10'}`}>
+                    {link.label}
+                    <ArrowIcon direction="external" className="h-3.5 w-3.5" />
+                  </a>
+                ))}
               </div>
             </article>
           ))}
+        </div>
+
+        <h3 className="mb-5 mt-14 text-xl font-semibold">UI/UX design</h3>
+        <div className="space-y-8">
+          {projects.filter((p) => p.design).map((project, index) => renderFeatured(project, index))}
         </div>
       </section>
 
