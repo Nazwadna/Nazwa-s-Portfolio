@@ -520,9 +520,9 @@ export default function NazwaPortfolio() {
       <section className="relative mx-auto max-w-7xl px-6 pb-16 pt-12 md:px-10 md:pb-24 md:pt-16">
         <div className="grid items-center gap-12 md:grid-cols-[1.15fr_0.85fr]">
           <div>
-            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-500/10 px-4 py-2 text-xs font-medium text-emerald-200">
-              <span className="h-2 w-2 rounded-full bg-emerald-400" />
-              Open to web developer roles
+            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-300/20 bg-blue-500/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.18em] text-blue-200">
+              <span className="h-2 w-2 rounded-full bg-blue-300" />
+              Profile &amp; Biography
             </p>
             <h1 className="text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl">
               Hi, I&apos;m Nazwa Audina.
@@ -540,9 +540,6 @@ export default function NazwaPortfolio() {
               </button>
               <a href={CV_LINK} target="_blank" rel="noopener noreferrer" className="rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-medium text-white transition hover:border-blue-300/40 hover:bg-white/10">
                 Download CV
-              </a>
-              <a href={`mailto:${EMAIL}`} className="rounded-full px-4 py-3 text-sm font-medium text-white/75 transition hover:text-white">
-                Contact me
               </a>
             </div>
 
@@ -941,9 +938,8 @@ export default function NazwaPortfolio() {
           </div>
         </div>
         <div className="border-t border-white/5">
-          <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-5 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between md:px-10">
+          <div className="mx-auto max-w-7xl px-6 py-5 text-xs text-white/45 md:px-10">
             <p>© 2026 Nazwa Audina. All rights reserved.</p>
-            <p>Built with React, Vite, and Tailwind CSS</p>
           </div>
         </div>
       </footer>
