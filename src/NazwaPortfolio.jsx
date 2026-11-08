@@ -1,12 +1,5 @@
 import { useEffect, useState } from 'react';
-import hero1 from './assets/hero/hero1.jpeg';
-import hero2 from './assets/hero/hero2.jpeg';
-import hero3 from './assets/hero/hero3.jpeg';
-import hero4 from './assets/hero/hero4.jpeg';
-import hero5 from './assets/hero/hero5.jpeg';
-import hero6 from './assets/hero/hero6.jpeg';
-import hero7 from './assets/hero/hero7.jpeg';
-import hero8 from './assets/hero/hero8.jpeg';
+import profilePhoto from './assets/hero/profile.jpg';
 import laWebsite from './assets/Projects/la.png';
 import academyNextTopModel from './assets/Projects/Academy Next Top Model.png';
 import levioraFashion from './assets/Projects/Leviora.png';
@@ -233,19 +226,9 @@ function ArrowIcon({ direction = 'right', className = 'h-4 w-4' }) {
 }
 
 export default function NazwaPortfolio() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showTop, setShowTop] = useState(false);
   const [activeSection, setActiveSection] = useState('');
-
-  const heroImages = [hero1, hero2, hero3, hero4, hero5, hero6, hero7, hero8];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [heroImages.length]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -375,38 +358,12 @@ export default function NazwaPortfolio() {
 
           <div className="relative mx-auto w-full max-w-sm md:max-w-none">
             <div className="rounded-[2rem] border border-white/10 bg-white/5 p-4 shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
-              <div className="relative overflow-hidden rounded-[1.5rem]">
+              <div className="overflow-hidden rounded-[1.5rem]">
                 <img
-                  src={heroImages[currentImageIndex]}
+                  src={profilePhoto}
                   alt="Nazwa Audina"
                   className="aspect-[4/5] w-full object-cover object-top"
                 />
-                <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-black/60 to-transparent px-4 pb-4 pt-10">
-                  <button
-                    onClick={() => setCurrentImageIndex((p) => (p - 1 + heroImages.length) % heroImages.length)}
-                    className="rounded-full bg-white/15 p-2 text-white backdrop-blur transition hover:bg-white/25"
-                    aria-label="Previous photo"
-                  >
-                    <ArrowIcon direction="left" />
-                  </button>
-                  <div className="flex gap-1.5">
-                    {heroImages.map((_, i) => (
-                      <button
-                        key={i}
-                        onClick={() => setCurrentImageIndex(i)}
-                        className={`h-1.5 rounded-full transition-all ${i === currentImageIndex ? 'w-5 bg-white' : 'w-1.5 bg-white/50'}`}
-                        aria-label={`Show photo ${i + 1}`}
-                      />
-                    ))}
-                  </div>
-                  <button
-                    onClick={() => setCurrentImageIndex((p) => (p + 1) % heroImages.length)}
-                    className="rounded-full bg-white/15 p-2 text-white backdrop-blur transition hover:bg-white/25"
-                    aria-label="Next photo"
-                  >
-                    <ArrowIcon />
-                  </button>
-                </div>
               </div>
             </div>
           </div>
