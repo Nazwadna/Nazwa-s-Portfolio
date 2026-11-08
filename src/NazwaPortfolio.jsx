@@ -163,33 +163,78 @@ const skillGroups = [
   { title: 'Tools & Design', items: ['Git & GitHub', 'Figma', 'VS Code', 'Wireframing', 'Prototyping'] },
 ];
 
+const leadership = {
+  role: 'Project Manager',
+  place: 'Lenteng Agung Urban Village Office · Community Service',
+  date: 'Oct 2025 - Jan 2026',
+  highlights: [
+    'Led a team of 5 to deliver a public service and complaint website with an AI chatbot and an admin dashboard.',
+    'Planned the timeline, divided tasks, and tracked progress from requirements to the official handover (BAST, January 2026).',
+    'Helped design the UI/UX in Figma. In testing, information access time dropped by 30% and 25+ complaints were sent online.',
+  ],
+  tags: ['Project Management', 'Team Leadership', 'Figma', 'UI/UX'],
+};
+
 const otherExperience = [
-  { role: 'Runway Choreographer', place: '"Wondrous" by Benita Octaviana, The Ritz-Carlton Jakarta', date: 'Jun 2025' },
-  { role: 'Design Crew Member', place: 'Indonesia Fashion Week 2025', date: 'May 2025' },
-  { role: 'Event Organizer', place: 'Fashion Trunk Show, Cove PIK Jakarta', date: 'Oct - Dec 2024' },
-  { role: 'Model', place: 'Modest Fashion Week 2024 & Gebyar UMKM', date: 'Sep - Oct 2024' },
+  {
+    role: 'Runway Choreographer',
+    place: '"Wondrous" by Benita Octaviana · The Ritz-Carlton Jakarta',
+    date: 'Jun 2025',
+    highlights: [
+      'Choreographed the runway for a designer fashion show.',
+      'Set the walking patterns, formations, and timing so the show ran in sync with the music.',
+    ],
+  },
+  {
+    role: 'Design Crew Member',
+    place: 'Academy Next Top Model · Indonesia Fashion Week 2025',
+    date: 'May 2025',
+    highlights: [
+      'Joined the design crew for the academy show at Indonesia Fashion Week.',
+      'Helped prepare the looks and supported the team backstage so every model was ready on time.',
+    ],
+  },
+  {
+    role: 'Event Organizer',
+    place: 'Fashion Trunk Show · Cove PIK Jakarta',
+    date: 'Oct - Dec 2024',
+    highlights: [
+      'Organized a fashion trunk show from planning to show day.',
+      'Coordinated the schedule, models, and vendors over three months.',
+    ],
+  },
+  {
+    role: 'Runway Model',
+    place: 'Modest Fashion Week 2024 · Gebyar UMKM (DPR RI x Harry Ryan Designer)',
+    date: 'Sep - Oct 2024',
+    highlights: [
+      'Walked the runway at Modest Fashion Week 2024.',
+      'Modeled for Harry Ryan Designer at Gebyar UMKM, an event that showcased local small businesses.',
+    ],
+  },
 ];
 
 const certifications = [
   {
-    title: "Certificate of Competence: Junior Web Programmer",
-    issuer: "BNSP (Badan Nasional Sertifikasi Profesi) via LSP Gunadarma University",
-    date: "Jul 2026",
-    file: "/certificates/bnsp-junior-web-programmer.pdf",
+    title: 'Certificate of Competence: Junior Web Programmer',
+    issuer: 'BNSP (Badan Nasional Sertifikasi Profesi) via LSP Gunadarma University',
+    date: 'Jul 2026',
+    file: '/certificates/bnsp-junior-web-programmer.pdf',
+    preview: 'bnsp-junior-web-programmer',
     featured: true,
-    note: "National competency certification based on SKKNI standards. Passed all 8 units of competency, including implementing user interfaces, structured programming, data structures, using pre-existing libraries, writing code documentation, and debugging. Valid until July 2029.",
+    note: 'National competency certification based on SKKNI standards. Passed all 8 units of competency, including implementing user interfaces, structured programming, data structures, using pre-existing libraries, writing code documentation, and debugging. Valid until July 2029.',
   },
-  { title: "EF SET English Certificate: 87/100 (C2 Proficient)", issuer: "EF SET", date: "Jul 2026", file: "https://cert.efset.org/id/WDwj9u" },
-  { title: "Basic Web Application Development", issuer: "Gunadarma University", date: "May - Jun 2026", file: "/certificates/web-app-development.pdf" },
-  { title: "Basic Web Application Design", issuer: "Gunadarma University", date: "Sep 2025", file: "/certificates/web-app-design.pdf" },
-  { title: "Interface Design and Prototyping with Figma", issuer: "Gunadarma University", date: "Jan 2026", file: "/certificates/figma-workshop.pdf" },
-  { title: "Oracle for Intermediate", issuer: "Gunadarma University", date: "Aug 2025", file: "/certificates/oracle-intermediate.pdf" },
-  { title: "Java Programming (J2SE): Intermediate", issuer: "Gunadarma University", date: "Feb 2025", file: "/certificates/java-intermediate.pdf" },
-  { title: "Java Programming (J2SE): Beginner", issuer: "Gunadarma University", date: "Feb 2024", file: "/certificates/java-beginner.pdf" },
-  { title: "Oracle for Beginner", issuer: "Gunadarma University", date: "Feb 2024", file: "/certificates/oracle-beginner.pdf" },
-  { title: "Fundamental Desktop Programming", issuer: "Gunadarma University", date: "Aug 2023", file: "/certificates/desktop-programming.pdf" },
-  { title: "Fundamental DBMS", issuer: "Gunadarma University", date: "Feb 2023", file: "/certificates/dbms-fundamental.pdf" },
-  { title: "Aptitude Test", issuer: "Gunadarma University", date: "May 2026", file: "/certificates/aptitude-test.pdf" },
+  { title: 'EF SET English Certificate: 87/100 (C2 Proficient)', issuer: 'EF SET', date: 'Jul 2026', file: 'https://cert.efset.org/id/WDwj9u', preview: 'ef-set' },
+  { title: 'Basic Web Application Development', issuer: 'Gunadarma University', date: 'Jun 2026', file: '/certificates/web-app-development.pdf', preview: 'web-app-development' },
+  { title: 'Aptitude Test', issuer: 'Gunadarma University', date: 'May 2026', file: '/certificates/aptitude-test.pdf', preview: 'aptitude-test' },
+  { title: 'Interface Design and Prototyping with Figma', issuer: 'Gunadarma University', date: 'Jan 2026', file: '/certificates/figma-workshop.pdf', preview: 'figma-workshop' },
+  { title: 'Basic Web Application Design', issuer: 'Gunadarma University', date: 'Sep 2025', file: '/certificates/web-app-design.pdf', preview: 'web-app-design' },
+  { title: 'Oracle for Intermediate', issuer: 'Gunadarma University', date: 'Aug 2025', file: '/certificates/oracle-intermediate.pdf', preview: 'oracle-intermediate' },
+  { title: 'Java Programming (J2SE): Intermediate', issuer: 'Gunadarma University', date: 'Feb 2025', file: '/certificates/java-intermediate.pdf', preview: 'java-intermediate' },
+  { title: 'Java Programming (J2SE): Beginner', issuer: 'Gunadarma University', date: 'Feb 2024', file: '/certificates/java-beginner.pdf', preview: 'java-beginner' },
+  { title: 'Oracle for Beginner', issuer: 'Gunadarma University', date: 'Feb 2024', file: '/certificates/oracle-beginner.pdf', preview: 'oracle-beginner' },
+  { title: 'Fundamental Desktop Programming', issuer: 'Gunadarma University', date: 'Aug 2023', file: '/certificates/desktop-programming.pdf', preview: 'desktop-programming' },
+  { title: 'Fundamental DBMS', issuer: 'Gunadarma University', date: 'Feb 2023', file: '/certificates/dbms-fundamental.pdf', preview: 'dbms-fundamental' },
 ];
 
 const card = 'rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-[0_18px_40px_rgba(0,0,0,0.22)] backdrop-blur-xl md:p-8';
@@ -300,7 +345,7 @@ export default function NazwaPortfolio() {
 
   const featuredCerts = certifications.filter((c) => c.featured);
   const otherCerts = certifications.filter((c) => !c.featured);
-  const shownCerts = [...featuredCerts, ...(showAllCerts ? otherCerts : otherCerts.slice(0, 4))];
+  const shownCerts = [...featuredCerts, ...(showAllCerts ? otherCerts : otherCerts.slice(0, 6))];
 
   const copyEmail = async () => {
     try {
@@ -563,9 +608,10 @@ export default function NazwaPortfolio() {
       {/* Experience */}
       <section id="experience" className="relative mx-auto max-w-7xl scroll-mt-28 px-6 py-10 md:px-10">
         <SectionHeading label="Experience" title="Where I've worked" />
-        <Reveal><div className="grid gap-6 lg:grid-cols-[1.3fr_0.7fr]">
+        <Reveal><div className="grid gap-6">
           <div className={card}>
-            <div className="flex flex-wrap items-start justify-between gap-3">
+            <p className={eyebrow}>Work Experience</p>
+            <div className="mt-4 flex flex-wrap items-start justify-between gap-3">
               <div>
                 <h3 className="text-xl font-semibold">Cloud Team Intern</h3>
                 <p className="mt-1 text-white/70">Telkomsel · Jakarta</p>
@@ -582,19 +628,47 @@ export default function NazwaPortfolio() {
               ))}
             </div>
           </div>
-          <div className={card}>
-            <h3 className="text-sm font-medium uppercase tracking-[0.18em] text-white/60">Other Experience</h3>
-            <ul className="mt-5 space-y-4">
-              {otherExperience.map((item) => (
-                <li key={item.role + item.date} className="border-b border-white/5 pb-4 last:border-0 last:pb-0">
-                  <div className="flex items-baseline justify-between gap-3">
-                    <p className="text-sm font-medium text-white/90">{item.role}</p>
-                    <span className="shrink-0 text-xs text-white/50">{item.date}</span>
+        </div></Reveal>
+
+        <Reveal><div className="mt-12">
+          <p className={eyebrow}>Leadership &amp; Organization</p>
+          <h3 className="mt-3 text-2xl font-semibold tracking-tight">Beyond code</h3>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            <article className={`${card} border-blue-300/25 bg-blue-500/[0.07] md:col-span-2`}>
+              <div className="flex flex-wrap items-start justify-between gap-3">
+                <div>
+                  <h4 className="text-lg font-semibold">{leadership.role}</h4>
+                  <p className="mt-1 text-sm text-white/70">{leadership.place}</p>
+                </div>
+                <span className="rounded-full border border-blue-300/25 bg-blue-500/10 px-3 py-1 text-xs text-blue-100">{leadership.date}</span>
+              </div>
+              <ul className="mt-5 space-y-3 text-sm leading-7 text-white/75">
+                {leadership.highlights.map((h) => (
+                  <li key={h} className="flex gap-3"><span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-300" />{h}</li>
+                ))}
+              </ul>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {leadership.tags.map((t) => (
+                  <span key={t} className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/75">{t}</span>
+                ))}
+              </div>
+            </article>
+            {otherExperience.map((item) => (
+              <article key={item.role + item.date} className={card}>
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div className="min-w-0">
+                    <h4 className="text-base font-semibold">{item.role}</h4>
+                    <p className="mt-1 text-xs leading-5 text-white/60">{item.place}</p>
                   </div>
-                  <p className="mt-1 text-xs leading-5 text-white/60">{item.place}</p>
-                </li>
-              ))}
-            </ul>
+                  <span className="shrink-0 text-xs text-white/50">{item.date}</span>
+                </div>
+                <ul className="mt-4 space-y-2 text-sm leading-6 text-white/70">
+                  {item.highlights.map((h) => (
+                    <li key={h} className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-white/40" />{h}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
           </div>
         </div></Reveal>
       </section>
@@ -728,31 +802,36 @@ export default function NazwaPortfolio() {
       {/* Certifications */}
       <section id="certifications" className="relative mx-auto max-w-7xl scroll-mt-28 px-6 py-16 md:px-10">
         <SectionHeading label="Certifications" title="Training and certificates" />
-        <div className="grid gap-4 md:grid-cols-2">
-          {shownCerts.map((cert) => {
-            const inner = (
-              <>
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p className="font-medium text-white/90">{cert.title}</p>
-                    <p className="mt-1 text-xs text-white/55">{cert.issuer}</p>
-                  </div>
-                  <span className="shrink-0 text-xs text-white/55">{cert.date}</span>
-                </div>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {shownCerts.map((cert) => (
+            <a
+              key={cert.title}
+              href={cert.file}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`group flex min-w-0 flex-col overflow-hidden rounded-2xl border transition hover:-translate-y-0.5 hover:border-blue-300/40 ${cert.featured ? 'border-blue-300/30 bg-blue-500/10 sm:col-span-2 lg:col-span-3 md:flex-row' : 'border-white/10 bg-white/[0.03] hover:bg-white/[0.06]'}`}
+            >
+              <div className={`relative shrink-0 overflow-hidden bg-white/90 ${cert.featured ? 'aspect-[4/3] md:aspect-auto md:min-h-[240px] md:w-72' : 'aspect-[4/3]'}`}>
+                <img
+                  src={`/certificates/previews/${cert.preview}.webp`}
+                  alt={`${cert.title} certificate`}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover object-top transition duration-500 group-hover:scale-[1.03]"
+                />
+              </div>
+              <div className="flex flex-1 flex-col p-5">
+                <span className="text-xs font-medium text-blue-200/80">{cert.date}</span>
+                <p className="mt-2 font-medium leading-6 text-white/90">{cert.title}</p>
+                <p className="mt-1 text-xs text-white/55">{cert.issuer}</p>
                 {cert.note && <p className="mt-3 text-sm leading-6 text-white/70">{cert.note}</p>}
-              </>
-            );
-            const cls = `block rounded-2xl border p-5 text-sm transition ${cert.featured ? 'border-blue-300/30 bg-blue-500/10 md:col-span-2' : 'border-white/10 bg-white/[0.03]'}`;
-            return cert.file ? (
-              <a key={cert.title} href={cert.file} target="_blank" rel="noopener noreferrer" className={`${cls} hover:border-blue-300/40 hover:bg-white/[0.07]`}>
-                {inner}
-              </a>
-            ) : (
-              <div key={cert.title} className={cls}>{inner}</div>
-            );
-          })}
+                <span className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-medium text-blue-300">
+                  View certificate <ArrowIcon direction="external" className="h-3.5 w-3.5" />
+                </span>
+              </div>
+            </a>
+          ))}
         </div>
-        {otherCerts.length > 4 && (
+        {otherCerts.length > 6 && (
           <div className="mt-6 text-center">
             <button
               onClick={() => setShowAllCerts((v) => !v)}
@@ -822,10 +901,50 @@ export default function NazwaPortfolio() {
         </div></Reveal>
       </section>
 
-      <footer className="relative mx-auto max-w-7xl border-t border-white/10 px-6 py-8 text-sm text-white/55 md:px-10">
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 Nazwa Audina</p>
-          <p>Built with React and Tailwind CSS</p>
+      <footer className="relative mt-8 border-t border-white/10 bg-[#070b17]/80">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-12 md:grid-cols-[1.4fr_1fr_1fr] md:px-10">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/90">Nazwa Audina</p>
+            <p className="mt-3 max-w-sm text-sm leading-7 text-white/60">
+              Web Developer and BNSP-certified Junior Web Programmer, building clean and useful websites with Laravel, React.js, and MySQL.
+            </p>
+            <a href={CV_LINK} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-white/90 transition hover:bg-white/10">
+              Download CV <ArrowIcon direction="external" className="h-3.5 w-3.5" />
+            </a>
+          </div>
+          <nav aria-label="Footer navigation">
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-white/50">Navigate</p>
+            <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+              {navItems.map((item) => (
+                <li key={item.id}>
+                  <button onClick={() => goTo(item.id)} className="text-white/70 transition hover:text-white">{item.label}</button>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-white/50">Connect</p>
+            <ul className="mt-4 space-y-2 text-sm">
+              {[
+                ['Email', `mailto:${EMAIL}`],
+                ['WhatsApp', 'https://wa.me/6282298795797'],
+                ['LinkedIn', 'https://www.linkedin.com/in/nazwaaudina/'],
+                ['GitHub', 'https://github.com/Nazwadna'],
+              ].map(([label, href]) => (
+                <li key={label}>
+                  <a href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-white/70 transition hover:text-white">
+                    {label} <ArrowIcon direction="external" className="h-3 w-3 text-white/40" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="border-t border-white/5">
+          <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-5 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between md:px-10">
+            <p>© 2026 Nazwa Audina. All rights reserved.</p>
+            <p>Built with React, Vite, and Tailwind CSS</p>
+          </div>
         </div>
       </footer>
 
