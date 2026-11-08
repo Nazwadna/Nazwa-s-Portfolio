@@ -63,7 +63,9 @@ const projects = [
     ],
     tools: ['React.js', 'Vite', 'Tailwind CSS', 'Supabase', 'Figma'],
     links: [
-      { label: 'GitHub', url: 'https://github.com/Nazwadna/kelurahan-la-main', primary: true },
+      { label: 'Demo Video', url: '/videos/lenteng-agung-demo.mp4', primary: true },
+      { label: 'Live Website', url: 'https://kelurahan-la.vercel.app/' },
+      { label: 'GitHub', url: 'https://github.com/Nazwadna/kelurahan-la-main' },
       { label: 'Dashboard Repo', url: 'https://github.com/Nazwadna/dashboard-kel-main' },
       { label: 'Prototype', url: 'https://www.figma.com/proto/ikdzIxZeY8x5oIdPl0pZzZ/Kelurahan-Lenteng-Agung-Design?node-id=0-1&t=hU8cBqoWuYfhM54C-1' },
       { label: 'Certificate', url: '/certificates/kelurahan-la-award.pdf', award: true },
@@ -132,7 +134,7 @@ const projects = [
   {
     title: 'Leviora Fashion E-Commerce',
     subtitle: 'High-fidelity UI prototype',
-    period: '2024',
+    period: 'Dec 2024',
     category: 'Human-Computer Interaction Project',
     role: 'UI/UX Designer',
     design: true,
