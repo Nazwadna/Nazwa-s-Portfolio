@@ -129,85 +129,82 @@ export default function NazwaPortfolio() {
       ],
     },
     {
-      title: "Jewepe Weeding Platform",
+      title: "Jewepe Wedding Organizer",
       subtitle: "Wedding Management System",
       period: "2024",
       category: "Web Development Project",
-      tools: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+      tools: ["CodeIgniter 3", "PHP", "MySQL", "Bootstrap", "JavaScript"],
       image: jewepeWeeding,
       figmaLink: "https://www.figma.com/design/1I9dKA2TFo5WBvxyHCTM3W/Wedding-Organizer-JeWePe?node-id=0-1&t=g1wjmtZ2Nyk8GkFa-1",
       githubLink: "https://github.com/Nazwadna/jwp_wedding.git",
       livePreviewLink: "https://www.figma.com/proto/1I9dKA2TFo5WBvxyHCTM3W/Wedding-Organizer-JeWePe?node-id=0-1&t=g1wjmtZ2Nyk8GkFa-1",
       description:
-        "A comprehensive wedding management platform designed to streamline wedding planning processes, vendor management, and event coordination for couples and wedding organizers.",
-      results: ["Complete vendor management system", "Event scheduling features"],
+        "A web application for a wedding organizer where customers can browse wedding packages and place orders, while the admin manages the catalog and incoming orders.",
+      results: ["Package catalog & online orders", "Admin panel with order reports"],
       highlights: [
-        "Developed full-stack wedding management solution.",
-        "Implemented vendor booking and payment systems.",
-        "Created user-friendly dashboard for wedding planning.",
+        "Built customer pages for the package catalog, package details, order form, and contact.",
+        "Built an admin panel to add, edit, and delete wedding packages.",
+        "Added order management, an order report, and website settings for the admin.",
       ],
     },
     {
       title: "Perpus GAS",
       subtitle: "Digital Library Management System",
-      period: "2024",
+      period: "Dec 2024 - Jan 2025",
       category: "Academic Project",
-      tools: ["React.js", "Node.js", "MongoDB", "Express"],
+      tools: ["React.js", "Vite", "Tailwind CSS", "PHP", "MySQL"],
       image: perpusGas,
       figmaLink: null,
       githubLink: "https://github.com/Nazwadna/perpusgas.git",
       livePreviewLink: null,
       description:
-        "A modern digital library management system designed to improve book cataloging, borrowing processes, and user experience for educational institutions.",
-      results: ["500+ books cataloged", "Streamlined borrowing process"],
+        "A web-based library management system with a React front end and a PHP API, built for the Web Programming Practicum at Gunadarma University.",
+      results: ["100+ book records", "50+ simulated loans tested"],
       highlights: [
-        "Built responsive library interface with React.",
-        "Implemented real-time book availability tracking.",
-        "Created admin dashboard for library management.",
+        "Built separate member and admin views in React.",
+        "Added book search, catalog management, and borrowing features.",
+        "Connected the front end to a PHP API and MySQL database.",
       ],
     },
     {
-      title: "Preloved Marketplace",
-      subtitle: "Second-Hand E-Commerce Platform",
+      title: "Preloved POS",
+      subtitle: "Point of Sale App for a Preloved Fashion Store",
       period: "2024",
-      category: "E-Commerce Project",
-      tools: ["React.js", "Tailwind CSS", "Firebase", "Stripe API"],
+      category: "Desktop Application Project",
+      tools: ["Java 17", "Java Swing", "Spring", "Hibernate", "MySQL"],
       image: preloved,
       figmaLink: null,
       githubLink: "https://github.com/Nazwadna/preloved.git",
       livePreviewLink: null,
       description:
-        "A user-friendly marketplace platform for buying and selling pre-owned items, featuring secure payments, user verification, and comprehensive search functionality.",
-      results: ["100+ active listings", "Secure payment integration"],
+        "A desktop point of sale application to manage sales and inventory for a preloved (second-hand) fashion store.",
+      results: ["Owner & staff login roles", "Daily sales report"],
       highlights: [
-        "Developed full e-commerce platform with React.",
-        "Integrated Stripe API for secure payments.",
-        "Implemented advanced search and filtering system.",
+        "Built item management (add, view, edit, delete) for fashion stock.",
+        "Built a cashier screen with a shopping cart to process sales.",
+        "Added transaction history and a daily sales recap.",
       ],
     },
   ];
 
   const skills = [
-    "UI/UX Design",
-    "Wireframing",
-    "Prototyping",
-    "High-Fidelity Mockups",
-    "User Flows",
-    "Usability Testing",
-    "Figma",
     "HTML",
     "CSS",
     "JavaScript",
     "React.js",
-    "Laravel",
     "Tailwind CSS",
     "Bootstrap",
-    "Supabase",
+    "Laravel",
     "PHP",
     "MySQL",
-    "GitHub",
-    "Notion",
-    "Canva",
+    "Supabase",
+    "Python (Flask)",
+    "REST API",
+    "Git & GitHub",
+    "Figma",
+    "UI/UX Design",
+    "Wireframing",
+    "Prototyping",
   ];
 
   const certifications = [
@@ -219,8 +216,11 @@ export default function NazwaPortfolio() {
     "Fundamentals of Database Management Systems (DBMS)",
   ];
 
-  const experience = [
+  const workExperience = [
     "Cloud Team Intern - Telkomsel (Jul 2026 - Present)",
+  ];
+
+  const experience = [
     "Choreographer - Wondrous by Benita Octaviana",
     "Design Crew Member - Indonesia Fashion Week 2025",
     "Event Organizer - Fashion Trunk Show",
@@ -355,9 +355,9 @@ export default function NazwaPortfolio() {
         <div className="grid gap-6 md:grid-cols-[0.95fr_1.05fr]">
           <div className="rounded-[2rem] border border-white/10 bg-white/5 p-7 shadow-[0_18px_40px_rgba(0,0,0,0.2)] backdrop-blur-xl">
             <p className="text-sm uppercase tracking-[0.22em] text-fuchsia-200/80">About</p>
-            <h2 className="mt-3 text-3xl font-semibold">A mix of visual style, structure, and usability.</h2>
+            <h2 className="mt-3 text-3xl font-semibold">From design to a working website.</h2>
             <p className="mt-4 text-sm leading-8 text-white/65">
-              I enjoy building interfaces that are polished, engaging, and still practical for real users. My work combines wireframing, user flow mapping, prototyping, and front-end implementation for academic and community-based digital products.
+              Web developer with a background in UI/UX design. I turn Figma designs into responsive websites with React.js and Laravel, connect them to databases such as MySQL and Supabase, and build admin dashboards so the data is easy to manage.
             </p>
           </div>
 
@@ -370,11 +370,11 @@ export default function NazwaPortfolio() {
               </div>
               <div className="rounded-[1.4rem] border border-white/8 bg-white/5 p-4">
                 <p className="text-xs uppercase tracking-[0.18em] text-white/45">GPA</p>
-                <p className="mt-2 text-sm leading-7 text-white/85">3.62 / 4.00</p>
+                <p className="mt-2 text-sm leading-7 text-white/85">3.57 / 4.00</p>
               </div>
               <div className="rounded-[1.4rem] border border-white/8 bg-white/5 p-4">
                 <p className="text-xs uppercase tracking-[0.18em] text-white/45">Focus</p>
-                <p className="mt-2 text-sm leading-7 text-white/85">UI/UX, Prototyping, Front-End, Digital Product Design</p>
+                <p className="mt-2 text-sm leading-7 text-white/85">Web Development, Front-End, Admin Dashboards</p>
               </div>
               <div className="rounded-[1.4rem] border border-white/8 bg-white/5 p-4">
                 <p className="text-xs uppercase tracking-[0.18em] text-white/45">Language</p>
@@ -509,12 +509,18 @@ export default function NazwaPortfolio() {
           <div className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-[#151826] to-[#0d1018] p-7 shadow-[0_18px_40px rgba(0,0,0,0.24)]">
             <p className="text-sm uppercase tracking-[0.22em] text-blue-200/70">Certifications</p>
             <div className="mt-5 space-y-3">
+              <div className="rounded-[1.25rem] border border-white/8 bg-white/5 px-4 py-4 text-sm leading-7 text-white/85">
+                Junior Web Programmer Certification, BNSP (2026)
+              </div>
+              <div className="rounded-[1.25rem] border border-white/8 bg-white/5 px-4 py-4 text-sm leading-7 text-white/85">
+                Basic Web Application Development (2026)
+              </div>
+              <div className="rounded-[1.25rem] border border-white/8 bg-white/5 px-4 py-4 text-sm leading-7 text-white/85">
+                Basic Web Application Design (2025)
+              </div>
               <a href="/certificates/figma-workshop.pdf" target="_blank" rel="noopener noreferrer" className="rounded-[1.25rem] border border-white/8 bg-white/5 px-4 py-4 text-sm leading-7 text-white/85 block hover:bg-white/10 transition">
                 Interface Design and Prototyping with Figma
               </a>
-              <div className="rounded-[1.25rem] border border-white/8 bg-white/5 px-4 py-4 text-sm leading-7 text-white/85">
-                Junior Web Programmer Certification
-              </div>
               <a href="/certificates/java-beginner.pdf" target="_blank" rel="noopener noreferrer" className="rounded-[1.25rem] border border-white/8 bg-white/5 px-4 py-4 text-sm leading-7 text-white/85 block hover:bg-white/10 transition">
                 Java Programming (J2SE): Beginner
               </a>
@@ -534,7 +540,15 @@ export default function NazwaPortfolio() {
           </div>
 
           <div className="rounded-[2rem] border border-white/10 bg-white/5 p-7 shadow-[0_18px_40px rgba(0,0,0,0.2)] backdrop-blur-xl">
-            <p className="text-sm uppercase tracking-[0.22em] text-indigo-200/75">Experience</p>
+            <p className="text-sm uppercase tracking-[0.22em] text-indigo-200/75">Work Experience</p>
+            <div className="mt-5 space-y-3">
+              {workExperience.map((item) => (
+                <div key={item} className="rounded-[1.25rem] border border-white/8 bg-[#11141d] px-4 py-4 text-sm leading-7 text-white/85">
+                  {item}
+                </div>
+              ))}
+            </div>
+            <p className="mt-8 text-sm uppercase tracking-[0.22em] text-indigo-200/75">Other Experience</p>
             <div className="mt-5 space-y-3">
               {experience.map((item) => (
                 <div key={item} className="rounded-[1.25rem] border border-white/8 bg-[#11141d] px-4 py-4 text-sm leading-7 text-white/70">
@@ -563,11 +577,11 @@ export default function NazwaPortfolio() {
 
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 <a
-                  href="mailto:nazwa.audina64@gmail.com"
+                  href="mailto:nazwaaudina.work@gmail.com"
                   className="group rounded-[1.6rem] border border-white/10 bg-white/5 p-5 transition-all duration-300 hover:border-blue-300/30 hover:bg-white/8 hover:shadow-[0_12px_35px_rgba(37,99,235,0.20)] hover:-translate-y-[-2px]"
                 >
                   <p className="text-xs uppercase tracking-[0.22em] text-white/45 group-hover:text-blue-200/75 transition-colors">Email</p>
-                  <p className="mt-3 text-lg font-medium text-white group-hover:text-blue-100 transition-colors">nazwa.audina64@gmail.com</p>
+                  <p className="mt-3 text-lg font-medium text-white group-hover:text-blue-100 transition-colors">nazwaaudina.work@gmail.com</p>
                   <p className="mt-2 text-sm text-white/45 group-hover:text-blue-200/75 transition-colors">Send a message ↗</p>
                 </a>
 
