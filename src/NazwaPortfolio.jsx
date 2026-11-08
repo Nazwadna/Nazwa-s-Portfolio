@@ -196,7 +196,7 @@ const otherExperience = [
   },
   {
     role: 'Event Organizer',
-    place: 'Fashion Trunk Show · Cove PIK Jakarta',
+    place: 'B1 Management · Fashion Trunk Show, Cove PIK Jakarta',
     date: 'Oct - Dec 2024',
     highlights: [
       'Organized a fashion trunk show from planning to show day.',
