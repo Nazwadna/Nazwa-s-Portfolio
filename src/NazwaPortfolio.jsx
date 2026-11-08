@@ -78,6 +78,7 @@ export default function NazwaPortfolio() {
       image: laWebsite,
       figmaLink: "https://www.figma.com/design/ikdzIxZeY8x5oIdPl0pZzZ/Kelurahan-Lenteng-Agung-Design?node-id=0-1&t=FQIoAoxjCZXxXPwP-1",
       githubLink: "https://github.com/Nazwadna/kelurahan-la-main.git",
+      awardLink: "/certificates/kelurahan-la-award.pdf",
       livePreviewLink: "https://www.figma.com/proto/ikdzIxZeY8x5oIdPl0pZzZ/Kelurahan-Lenteng-Agung-Design?node-id=0-1&t=hU8cBqoWuYfhM54C-1",
       description:
         "A public service and complaint platform designed to improve access to information, simplify complaint submissions, and support residents through a cleaner digital experience. Role: Project Manager - Led project planning, task allocation, and implementation.",
@@ -87,7 +88,7 @@ export default function NazwaPortfolio() {
         "Designed an AI chatbot-assisted service flow for residents.",
         "Restructured navigation and page hierarchy for better usability.",
         "Implemented AI chatbot feature to provide instant assistance and automated responses to resident inquiries.",
-        "Built a separate admin dashboard for village staff to manage complaints and website content.",
+        "Officially handed over to the Lenteng Agung Urban Village Office (BAST, 28 January 2026) and received a Certificate of Appreciation from the Lurah.",
       ],
     },
     {
@@ -208,12 +209,32 @@ export default function NazwaPortfolio() {
   ];
 
   const certifications = [
-    "Interface Design and Prototyping with Figma",
-    "Junior Web Programmer Certification",
-    "Java Programming (J2SE): Beginner and Intermediate",
-    "Oracle for Beginners",
-    "Fundamental Desktop Programming",
-    "Fundamentals of Database Management Systems (DBMS)",
+    {
+      title: "Certificate of Competence: Junior Web Programmer",
+      issuer: "BNSP (Badan Nasional Sertifikasi Profesi) via LSP Gunadarma University",
+      date: "Jul 2026",
+      file: "/certificates/bnsp-junior-web-programmer.pdf",
+      featured: true,
+      note: "National competency certification based on SKKNI standards. Passed all 8 units of competency, including implementing user interfaces, structured programming, data structures, using pre-existing libraries, writing code documentation, and debugging. Valid until July 2029.",
+    },
+    {
+      title: "Sarjana Muda Scientific Paper (Grade A)",
+      issuer: "Faculty of Industrial Technology, Gunadarma University",
+      date: "Sep 2025",
+      file: "https://drive.google.com/file/d/1vYRKdoDruRTxknZLuU_M-fE3xGA8Y4D_/view?usp=sharing",
+      featured: true,
+      note: "Designed and built a web-based portfolio management information system for Academy Next Top Model using the Waterfall method, from requirements analysis to implementation. Completed the Sarjana Muda level in Informatics with an A grade.",
+    },
+    { title: "Basic Web Application Development", issuer: "Gunadarma University", date: "May - Jun 2026", file: "/certificates/web-app-development.pdf" },
+    { title: "Basic Web Application Design", issuer: "Gunadarma University", date: "Sep 2025", file: "/certificates/web-app-design.pdf" },
+    { title: "Interface Design and Prototyping with Figma", issuer: "Gunadarma University", date: "Jan 2026", file: "/certificates/figma-workshop.pdf" },
+    { title: "Oracle for Intermediate", issuer: "Gunadarma University", date: "Aug 2025", file: "/certificates/oracle-intermediate.pdf" },
+    { title: "Java Programming (J2SE): Intermediate", issuer: "Gunadarma University", date: "Feb 2025", file: "/certificates/java-intermediate.pdf" },
+    { title: "Java Programming (J2SE): Beginner", issuer: "Gunadarma University", date: "Feb 2024", file: "/certificates/java-beginner.pdf" },
+    { title: "Oracle for Beginner", issuer: "Gunadarma University", date: "Feb 2024", file: "/certificates/oracle-beginner.pdf" },
+    { title: "Fundamental Desktop Programming", issuer: "Gunadarma University", date: "Aug 2023", file: "/certificates/desktop-programming.pdf" },
+    { title: "Fundamental DBMS", issuer: "Gunadarma University", date: "Feb 2023", file: "/certificates/dbms-fundamental.pdf" },
+    { title: "Aptitude Test", issuer: "Gunadarma University", date: "May 2026", file: "/certificates/aptitude-test.pdf" },
   ];
 
   const workExperience = [
@@ -468,6 +489,9 @@ export default function NazwaPortfolio() {
                   {project.livePreviewLink && (
                     <a href={project.livePreviewLink} target="_blank" rel="noopener noreferrer" className="group rounded-full border border-white/12 bg-white/5 px-4 py-2 text-sm text-white/80 transition-all duration-300 hover:bg-white/10 hover:border-indigo-300/30 hover:text-indigo-200 hover:shadow-[0_8px_25px_rgba(99,102,241,0.15)] inline-block">Live Preview</a>
                   )}
+                  {project.awardLink && (
+                    <a href={project.awardLink} target="_blank" rel="noopener noreferrer" className="group rounded-full border border-amber-300/30 bg-amber-400/10 px-4 py-2 text-sm text-amber-100 transition-all duration-300 hover:bg-amber-400/20 inline-block">Certificate of Appreciation</a>
+                  )}
                 </div>
               </div>
             </article>
@@ -509,33 +533,31 @@ export default function NazwaPortfolio() {
           <div className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-[#151826] to-[#0d1018] p-7 shadow-[0_18px_40px rgba(0,0,0,0.24)]">
             <p className="text-sm uppercase tracking-[0.22em] text-blue-200/70">Certifications</p>
             <div className="mt-5 space-y-3">
-              <div className="rounded-[1.25rem] border border-white/8 bg-white/5 px-4 py-4 text-sm leading-7 text-white/85">
-                Junior Web Programmer Certification, BNSP (2026)
-              </div>
-              <div className="rounded-[1.25rem] border border-white/8 bg-white/5 px-4 py-4 text-sm leading-7 text-white/85">
-                Basic Web Application Development (2026)
-              </div>
-              <div className="rounded-[1.25rem] border border-white/8 bg-white/5 px-4 py-4 text-sm leading-7 text-white/85">
-                Basic Web Application Design (2025)
-              </div>
-              <a href="/certificates/figma-workshop.pdf" target="_blank" rel="noopener noreferrer" className="rounded-[1.25rem] border border-white/8 bg-white/5 px-4 py-4 text-sm leading-7 text-white/85 block hover:bg-white/10 transition">
-                Interface Design and Prototyping with Figma
-              </a>
-              <a href="/certificates/java-beginner.pdf" target="_blank" rel="noopener noreferrer" className="rounded-[1.25rem] border border-white/8 bg-white/5 px-4 py-4 text-sm leading-7 text-white/85 block hover:bg-white/10 transition">
-                Java Programming (J2SE): Beginner
-              </a>
-              <a href="/certificates/java-intermediate.pdf" target="_blank" rel="noopener noreferrer" className="rounded-[1.25rem] border border-white/8 bg-white/5 px-4 py-4 text-sm leading-7 text-white/85 block hover:bg-white/10 transition">
-                Java Programming (J2SE): Intermediate
-              </a>
-              <a href="/certificates/oracle-beginner.pdf" target="_blank" rel="noopener noreferrer" className="rounded-[1.25rem] border border-white/8 bg-white/5 px-4 py-4 text-sm leading-7 text-white/85 block hover:bg-white/10 transition">
-                Oracle for Beginners
-              </a>
-              <a href="/certificates/desktop-programming.pdf" target="_blank" rel="noopener noreferrer" className="rounded-[1.25rem] border border-white/8 bg-white/5 px-4 py-4 text-sm leading-7 text-white/85 block hover:bg-white/10 transition">
-                Fundamental Desktop Programming
-              </a>
-              <a href="/certificates/dbms-fundamental.pdf" target="_blank" rel="noopener noreferrer" className="rounded-[1.25rem] border border-white/8 bg-white/5 px-4 py-4 text-sm leading-7 text-white/85 block hover:bg-white/10 transition">
-                Fundamentals of Database Management Systems (DBMS)
-              </a>
+              {certifications.map((cert) => {
+                const content = (
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <p className="text-white/90">{cert.title}</p>
+                      <p className="text-xs text-white/50">{cert.issuer}</p>
+                    </div>
+                    <span className="shrink-0 text-xs text-white/50">{cert.date}</span>
+                  </div>
+                );
+                const body = cert.note ? (
+                  <>
+                    {content}
+                    <p className="mt-2 text-xs leading-6 text-white/65">{cert.note}</p>
+                  </>
+                ) : content;
+                const cls = `block rounded-[1.25rem] border px-4 py-3 text-sm leading-6 ${cert.featured ? "border-blue-300/30 bg-blue-500/10" : "border-white/8 bg-white/5"}`;
+                return cert.file ? (
+                  <a key={cert.title} href={cert.file} target="_blank" rel="noopener noreferrer" className={`${cls} transition hover:bg-white/10 hover:border-blue-300/30`}>
+                    {body}
+                  </a>
+                ) : (
+                  <div key={cert.title} className={cls}>{body}</div>
+                );
+              })}
             </div>
           </div>
 
