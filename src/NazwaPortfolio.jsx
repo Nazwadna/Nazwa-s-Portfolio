@@ -37,14 +37,6 @@ const projects = [
       'Built an admin dashboard to manage chatbot answers and retrain the model in the background.',
     ],
     tools: ['Laravel', 'PHP', 'MySQL', 'Python (Flask)', 'REST API', 'Figma'],
-    gallery: {
-      title: 'Thesis defense documentation',
-      items: [
-        { src: '/thesis/defense-1.webp', thumb: '/thesis/defense-1-thumb.webp', alt: 'Nazwa presenting her thesis title slide at Gunadarma University' },
-        { src: '/thesis/defense-2.webp', thumb: '/thesis/defense-2-thumb.webp', alt: 'Nazwa with a classmate in front of the thesis defense slide' },
-        { src: '/thesis/defense-3.webp', thumb: '/thesis/defense-3-thumb.webp', alt: 'Nazwa with the thesis examiners after the defense' },
-      ],
-    },
     links: [
       { label: 'GitHub', url: 'https://github.com/Nazwadna/academynexttopmodel', primary: true },
       { label: 'Prototype', url: 'https://www.figma.com/proto/nnAZEMHkD7r4pRfjgxjjHk/Website-Academy-Next-Top-Model?node-id=0-1&t=10zxFPACS7MvkWoH-1' },
@@ -339,13 +331,6 @@ function ArrowIcon({ direction = 'right', className = 'h-4 w-4' }) {
 export default function NazwaPortfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showTop, setShowTop] = useState(false);
-  const [lightbox, setLightbox] = useState(null);
-  useEffect(() => {
-    if (!lightbox) return;
-    const onKey = (e) => e.key === 'Escape' && setLightbox(null);
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [lightbox]);
   const [activeSection, setActiveSection] = useState('');
   const [progress, setProgress] = useState(0);
   const [techFilter, setTechFilter] = useState('All');
@@ -401,23 +386,6 @@ export default function NazwaPortfolio() {
                 <div className="group overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#0f1118]">
                   <img src={project.image} alt={`${project.title} preview`} loading="lazy" className="w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]" />
                 </div>
-                {project.gallery && (
-                  <div className="mt-4">
-                    <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/55">{project.gallery.title}</p>
-                    <div className="mt-3 grid grid-cols-3 gap-3">
-                      {project.gallery.items.map((g) => (
-                        <button
-                          key={g.src}
-                          onClick={() => setLightbox(g)}
-                          className="group/thumb aspect-square overflow-hidden rounded-xl border border-white/10 bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-300"
-                          aria-label={`Open photo: ${g.alt}`}
-                        >
-                          <img src={g.thumb} alt={g.alt} loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover/thumb:scale-105" />
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
               </div>
 
               <div className={index % 2 === 1 ? 'md:order-1' : ''}>
@@ -975,21 +943,6 @@ export default function NazwaPortfolio() {
           </div>
         </div>
       </footer>
-
-      {lightbox && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label={lightbox.alt}
-          onClick={() => setLightbox(null)}
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm"
-        >
-          <img src={lightbox.src} alt={lightbox.alt} className="max-h-[85vh] max-w-full rounded-2xl shadow-2xl" onClick={(e) => e.stopPropagation()} />
-          <button onClick={() => setLightbox(null)} className="absolute right-4 top-4 rounded-full bg-white/10 p-2 text-white hover:bg-white/20" aria-label="Close photo">
-            <svg className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M18 6L6 18" /></svg>
-          </button>
-        </div>
-      )}
 
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
