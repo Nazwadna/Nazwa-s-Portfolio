@@ -81,13 +81,13 @@ export default function NazwaPortfolio() {
       awardLink: "/certificates/kelurahan-la-award.pdf",
       livePreviewLink: "https://www.figma.com/proto/ikdzIxZeY8x5oIdPl0pZzZ/Kelurahan-Lenteng-Agung-Design?node-id=0-1&t=hU8cBqoWuYfhM54C-1",
       description:
-        "A public service and complaint platform designed to improve access to information, simplify complaint submissions, and support residents through a cleaner digital experience. Role: Project Manager - Led project planning, task allocation, and implementation.",
+        "A public service and complaint platform designed to improve access to information, simplify complaint submissions, and support residents through a cleaner digital experience. Role: Project Manager for a team of 5, also helping with the UI/UX design.",
       results: ["30% faster information access", "25+ online complaints submitted"],
       highlights: [
-        "Led project planning, task allocation, and implementation as project manager.",
-        "Designed an AI chatbot-assisted service flow for residents.",
-        "Restructured navigation and page hierarchy for better usability.",
-        "Implemented AI chatbot feature to provide instant assistance and automated responses to resident inquiries.",
+        "Led a team of 5 (UI/UX designer, programmer, QA, and technical writer) from planning to handover.",
+        "Planned the timeline, divided tasks, and tracked progress across the team.",
+        "Helped design the UI/UX in Figma, including the chatbot-assisted service flow for residents.",
+        "Helped restructure the navigation and page hierarchy for better usability.",
         "Officially handed over to the Lenteng Agung Urban Village Office (BAST, 28 January 2026) and received a Certificate of Appreciation from the Lurah.",
       ],
     },
@@ -198,7 +198,6 @@ export default function NazwaPortfolio() {
     "Laravel",
     "PHP",
     "MySQL",
-    "Supabase",
     "Python (Flask)",
     "REST API",
     "Git & GitHub",
@@ -378,7 +377,7 @@ export default function NazwaPortfolio() {
             <p className="text-sm uppercase tracking-[0.22em] text-fuchsia-200/80">About</p>
             <h2 className="mt-3 text-3xl font-semibold">From design to a working website.</h2>
             <p className="mt-4 text-sm leading-8 text-white/65">
-              Web developer with a background in UI/UX design. I turn Figma designs into responsive websites with React.js and Laravel, connect them to databases such as MySQL and Supabase, and build admin dashboards so the data is easy to manage.
+              Web developer with a background in UI/UX design. I turn Figma designs into responsive websites with React.js and Laravel, connect them to MySQL databases, and build admin dashboards so the data is easy to manage.
             </p>
           </div>
 
