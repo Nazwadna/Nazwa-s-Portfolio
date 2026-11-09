@@ -205,10 +205,10 @@ const otherExperience = [
   },
   {
     role: 'Runway Model',
-    place: 'Modest Fashion Week 2024 · Gebyar UMKM (DPR RI x Harry Ryan Designer)',
-    date: 'Sep - Oct 2024',
+    place: 'ANTM Trunk Show · Modest Fashion Week 2024 · Gebyar UMKM (DPR RI x Harry Ryan Designer)',
+    date: 'Jul - Oct 2024',
     highlights: [
-      'Walked the runway at Modest Fashion Week 2024.',
+      'Walked the runway at the Academy Next Top Model Trunk Show at Trans Studio Mall and at Modest Fashion Week 2024.',
       'Modeled for Harry Ryan Designer at Gebyar UMKM, an event that showcased local small businesses.',
     ],
   },
