@@ -611,8 +611,8 @@ export default function NazwaPortfolio() {
             <p className={eyebrow}>Work Experience</p>
             <div className="mt-4 flex flex-wrap items-start justify-between gap-3">
               <div>
-                <h3 className="text-xl font-semibold">Cloud Team Intern</h3>
-                <p className="mt-1 text-white/70">Telkomsel · Jakarta</p>
+                <h3 className="text-xl font-semibold">Cloud Engineer Team</h3>
+                <p className="mt-1 text-white/70">Telkomsel · Internship · Jakarta (Hybrid)</p>
               </div>
               <span className="rounded-full border border-emerald-400/20 bg-emerald-500/10 px-3 py-1 text-xs text-emerald-200">Jul 2026 - Present</span>
             </div>
