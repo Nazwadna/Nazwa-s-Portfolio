@@ -38,7 +38,8 @@ const projects = [
     ],
     tools: ['Laravel', 'PHP', 'MySQL', 'Python (Flask)', 'REST API', 'Figma'],
     links: [
-      { label: 'GitHub', url: 'https://github.com/Nazwadna/academynexttopmodel', primary: true },
+      { label: 'Demo Video', url: '/videos/academy-next-top-model-demo.mp4', primary: true },
+      { label: 'GitHub', url: 'https://github.com/Nazwadna/academynexttopmodel' },
       { label: 'Prototype', url: 'https://www.figma.com/proto/nnAZEMHkD7r4pRfjgxjjHk/Website-Academy-Next-Top-Model?node-id=0-1&t=10zxFPACS7MvkWoH-1' },
     ],
   },
