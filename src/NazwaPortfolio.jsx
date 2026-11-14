@@ -206,11 +206,30 @@ const otherExperience = [
   },
   {
     role: 'Runway Model',
-    place: 'ANTM Trunk Show · Modest Fashion Week 2024 · Gebyar UMKM (DPR RI x Harry Ryan Designer)',
-    date: 'Jul - Oct 2024',
+    place: 'Ramadhan Festival DPR RI · ANTM Trunk Show · Modest Fashion Week 2024 · Gebyar UMKM (DPR RI x Harry Ryan Designer)',
+    date: 'Apr - Oct 2024',
     highlights: [
+      'Walked the runway at Ramadhan Festival 2024 at Gedung DPR/MPR RI for Harry Ryan Designer and Fraksi PPP DPR RI (Apr 2024).',
       'Walked the runway at the Academy Next Top Model Trunk Show at Trans Studio Mall and at Modest Fashion Week 2024.',
-      'Modeled for Harry Ryan Designer at Gebyar UMKM, an event that showcased local small businesses.',
+      'Modeled for Harry Ryan Designer at Gebyar UMKM and joined the Fraksi Gerindra DPR RI fashion show (Sep 2024).',
+    ],
+    certs: [
+      { label: 'Ramadhan Festival (Harry Ryan)', url: '/certificates/ramadhan-festival-runway-harry-ryan-2024.pdf' },
+      { label: 'Ramadhan Fest (Fraksi PPP DPR RI)', url: '/certificates/ramadhan-fest-fppp-dpr-2024.pdf' },
+      { label: 'Fashion Show (Fraksi Gerindra DPR RI)', url: '/certificates/fashion-show-gerindra-dpr-2024.pdf' },
+    ],
+  },
+  {
+    role: 'Model and Performer',
+    place: 'Gebyar UMKM Expo DPR RI · Gebyar Festival Kebaya · Brun Brun Paris',
+    date: 'Aug - Oct 2023',
+    highlights: [
+      'Performed at Gebyar Festival Kebaya Kemerdekaan RI at Hotel Aryaduta Lippo Karawaci (Aug 2023).',
+      'Performed at Gebyar UMKM Expo for the anniversary of Fraksi PPP DPR RI and GMPI at Gedung Nusantara II DPR RI (Oct 2023).',
+      'Competed in the Brun Brun Paris evening gown fashion show competition (Oct 2023).',
+    ],
+    certs: [
+      { label: 'Gebyar UMKM Expo DPR RI', url: '/certificates/gebyar-umkm-dpr-2023.pdf' },
     ],
   },
 ];
@@ -665,6 +684,15 @@ export default function NazwaPortfolio() {
                     <li key={h} className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-white/40" />{h}</li>
                   ))}
                 </ul>
+                {item.certs && (
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {item.certs.map((c) => (
+                      <a key={c.url} href={c.url} target="_blank" rel="noreferrer" className="rounded-full border border-amber-300/25 bg-amber-400/10 px-3 py-1.5 text-xs text-amber-100 transition hover:border-amber-300/50 hover:bg-amber-400/20">
+                        Certificate · {c.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
               </article>
             ))}
           </div>
