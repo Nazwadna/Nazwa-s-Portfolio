@@ -18,29 +18,28 @@ const navItems = [
 
 const projects = [
   {
-    title: 'Academy Next Top Model Website & Chatbot',
-    subtitle: 'Modeling academy website with an NLP chatbot',
-    period: 'May 2025 - Aug 2026',
-    category: 'Thesis & Academic Project',
+    title: 'Chatbot for Academy Next Top Model Website',
+    subtitle: 'NLP chatbot and admin dashboard for a modeling academy website',
+    period: 'May 2026 - Aug 2026',
+    category: 'Undergraduate Thesis',
     role: 'Web Developer',
     image: academyNextTopModel,
     description:
-      'A responsive Laravel website for a modeling academy, later extended for my thesis with an NLP chatbot and an admin dashboard.',
+      'My thesis (Grade A): an NLP chatbot added to the Academy Next Top Model Laravel website, with an admin dashboard to manage answers and retrain the model.',
     stats: [
       { value: '88.89%', label: 'Chatbot intent accuracy' },
       { value: '92%', label: 'User acceptance (UAT)' },
       { value: 'A', label: 'Thesis grade' },
     ],
     highlights: [
-      'Designed 10+ pages in Figma and built them as responsive Laravel pages, including online registration.',
-      'Connected the website to a Flask NLP service through a REST API.',
-      'Built an admin dashboard to manage chatbot answers and retrain the model in the background.',
+      'Added a chatbot to the Laravel website that sends user questions to a Flask NLP service through a REST API.',
+      'Built an admin dashboard to add new questions and answers, then retrain the model in the background with a queue worker.',
+      'Got a usability score of 88.64/100 (Bot Usability Scale) and 92% approval in UAT with 20 respondents.',
     ],
-    tools: ['Laravel', 'PHP', 'MySQL', 'Python (Flask)', 'REST API', 'Figma'],
+    tools: ['Laravel', 'PHP', 'MySQL', 'Python (Flask)', 'REST API'],
     links: [
       { label: 'Demo Video', url: '/videos/academy-next-top-model-demo.mp4', primary: true },
       { label: 'GitHub', url: 'https://github.com/Nazwadna/academynexttopmodel' },
-      { label: 'Prototype', url: 'https://www.figma.com/proto/nnAZEMHkD7r4pRfjgxjjHk/Website-Academy-Next-Top-Model?node-id=0-1&t=10zxFPACS7MvkWoH-1' },
     ],
   },
   {
@@ -70,6 +69,26 @@ const projects = [
       { label: 'Dashboard Repo', url: 'https://github.com/Nazwadna/dashboard-kel-main' },
       { label: 'Prototype', url: 'https://www.figma.com/proto/ikdzIxZeY8x5oIdPl0pZzZ/Kelurahan-Lenteng-Agung-Design?node-id=0-1&t=hU8cBqoWuYfhM54C-1' },
       { label: 'Certificate', url: '/certificates/kelurahan-la-award.pdf', award: true },
+    ],
+  },
+  {
+    title: 'Academy Next Top Model Website',
+    subtitle: 'Responsive website for a modeling academy',
+    period: 'May 2025 - Sep 2025',
+    category: 'Academic Project',
+    role: 'Web Developer · UI/UX',
+    compact: true,
+    description:
+      'A responsive Laravel website for a modeling academy, designed in Figma first and then built as working pages (Grade A).',
+    stats: [{ value: '10+', label: 'Pages designed and built' }],
+    highlights: [
+      'Designed 10+ pages in Figma, then built them as responsive Laravel pages.',
+      'Built the homepage, programs, gallery, and online registration form.',
+    ],
+    tools: ['Laravel', 'HTML', 'CSS', 'JavaScript', 'Figma'],
+    links: [
+      { label: 'GitHub', url: 'https://github.com/Nazwadna/academyntm2-finale', primary: true },
+      { label: 'Prototype', url: 'https://www.figma.com/proto/nnAZEMHkD7r4pRfjgxjjHk/Website-Academy-Next-Top-Model?node-id=0-1&t=10zxFPACS7MvkWoH-1' },
     ],
   },
   {
@@ -229,7 +248,22 @@ const otherExperience = [
       'Competed in the Brun Brun Paris evening gown fashion show competition (Oct 2023).',
     ],
     certs: [
+      { label: 'Gebyar Festival Kebaya', url: '/certificates/gebyar-festival-kebaya-2023.jpg' },
       { label: 'Gebyar UMKM Expo DPR RI', url: '/certificates/gebyar-umkm-dpr-2023.pdf' },
+      { label: 'Brun Brun Paris Fashion Show', url: '/certificates/brun-brun-paris-fashion-show-2023.jpg' },
+    ],
+  },
+  {
+    role: 'Modeling Awards',
+    place: 'Lintas Melawai · Pemilihan Ratu & Putri Kebaya 2023',
+    date: 'Jul 2023',
+    highlights: [
+      'Won Best Costume at the Lintas Melawai event (29 - 30 Jul 2023).',
+      'Finalist of Ratu Kebaya 2023 by Anggalang at Tangcity Mall Tangerang (23 Jul 2023).',
+    ],
+    certs: [
+      { label: 'Best Costume, Lintas Melawai', url: '/certificates/lintas-melawai-best-costume-2023.jpg' },
+      { label: 'Finalist, Ratu Kebaya 2023', url: '/certificates/ratu-kebaya-2023-finalist.jpg' },
     ],
   },
 ];
@@ -724,7 +758,7 @@ export default function NazwaPortfolio() {
         )}
 
         {compactProjects.length > 0 && <h3 className="mb-5 mt-14 text-xl font-semibold">More projects</h3>}
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-2">
           {compactProjects.map((project, i) => (
             <Reveal key={project.title} delay={i * 100} className="flex">
             <article className="flex w-full flex-col rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6 transition duration-300 hover:-translate-y-1 hover:border-blue-300/30 hover:bg-white/[0.06]">
